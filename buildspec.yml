@@ -8,7 +8,6 @@ phases:
       - $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)
       - AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query 'Account' --output text)
       - REPOSITORY_URI=${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${ECR_REPOSITORY_NAME}
-      - IMAGE_TAG=$(git rev-parse --short HEAD)
   build:
     commands:
       - echo Build started on `date`
@@ -21,7 +20,7 @@ phases:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker push ${REPOSITORY_URI}:${IMAGE_TAG}
+      - docker push ${REPOSITORY_URI}:$IMAGE_TAG
       - docker push ${REPOSITORY_URI}:latest
 
 # artifacts:
