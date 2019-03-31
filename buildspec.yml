@@ -20,10 +20,8 @@ phases:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker images
-      - echo docker push ${REPOSITORY_URI}:$IMAGE_TAG
-      - docker push ${REPOSITORY_URI}:$IMAGE_TAG
-      - docker push ${REPOSITORY_URI}:latest
+      - docker push ${REPOSITORY_URI}:$IMAGE_REPO_NAME:$IMAGE_TAG
+      - docker push ${REPOSITORY_URI}:$IMAGE_REPO_NAME:latest
 
 # artifacts:
 #   files: artifacts.json
