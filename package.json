@@ -1,0 +1,14 @@
+{
+  "name": "aws-pipeline-ecs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/wwalpha/aws-pipeline-ecs.git",
+  "author": "wwalpha <wwalpha@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "express": "^4.16.4"
+  },
+  "scripts": {
+    "start": "node server"
+  }
+}
