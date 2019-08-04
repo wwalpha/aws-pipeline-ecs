@@ -9,6 +9,7 @@
     "express": "^4.16.4"
   },
   "scripts": {
-    "start": "node server"
+    "start": "node server",
+    "build": "docker build -t ecs:latest ."
   }
 }

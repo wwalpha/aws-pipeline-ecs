@@ -1,16 +1,9 @@
 FROM node:10.16.0-alpine
 
-ENV APP_DIR /src
-ENV GIT /ecr-build
+WORKDIR /usr/src/app
+COPY . .
+RUN yarn install
 
-WORKDIR $APP_DIR
+EXPOSE 80
 
-RUN apt-get -y update
-
-RUN git clone https://github.com/wwalpha/aws-pipeline-ecs.git /ecr-build
-
-RUN mv $GIT/source/* $APP_DIR && \
-  cd $APP_DIR && \
-  npm install
-
-CMD ["npm", "start" ]
+CMD ["npm", "start"]
